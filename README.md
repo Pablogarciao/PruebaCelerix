@@ -17,8 +17,8 @@ Este proyecto carga datos desde un archivo CSV a una base de datos PostgreSQL us
 
 ## Instrucciones
 
-1. Clona el repositorio o descarga el proyecto en tu máquina.
-2. Asegúrate de que el archivo `facts_table.csv` esté en la raíz del proyecto.
-3. Construye y ejecuta los contenedores con Docker Compose:
+1. Clonar el repositorio o descarga el proyecto en tu computador.
+2. Asegurarse de que el archivo `facts_table.csv` esté en la raíz del proyecto.
+3. Construir y ejecuta los contenedores con Docker Compose con el siguiente comando:
    ```bash
    docker compose up
