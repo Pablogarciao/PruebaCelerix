@@ -3,13 +3,15 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: FortyfivePaca4577
-      POSTGRES_DB: ETL_Celerix
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
 
   app:
     build:
@@ -20,12 +22,14 @@ services:
     volumes:
       - .:/app
     environment:
-      - DB_HOST=localhost #antes estaba db
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=FortyfivePaca4577
-      - DB_NAME=ETL_Celerix
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_DATABASE}
     command: ["python", "script.py"]
+    env_file:
+      - .env
 
 volumes:
   postgres_data:
