@@ -1,2 +1,3 @@
 .ambiente-env
+.ambiente_env/*
 .env
